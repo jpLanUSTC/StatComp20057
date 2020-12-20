@@ -1,15 +1,18 @@
 Package: StatComp20057
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Title: Two functions in statscomp
 Version: 1.0
-Date: 2020-12-13
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one
-        or more full sentences.
+Date: 2020-12-20
+Author: Jianping Lan
+Maintainer: Jianping Lan <1413433806@qq.com>
+Description: The package is a collection of two functions. One is to use bootstrap method to estimate variance, the other is to test the normality of skewness of data.
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.5)
+Imports: microbenchmark, ggplot2, MASS, RANN, Ball, boot, bootstrap, devtools, DAAG, energy, parallel, Rcpp (>= 0.12.16)
 LinkingTo: Rcpp
+Encoding: UTF-8
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
 RoxygenNote: 7.1.1
-URL: http://github.com/zhanghfd/StatComp
-BugReports: http://github.com/zhanghfd/StatComp/issues
+URL: http://github.com/jpLanUSTC/StatComp20057
+BugReports: http://github.com/jpLan/StatComp20057/issues
+

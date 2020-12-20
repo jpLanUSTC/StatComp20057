@@ -5,6 +5,30 @@
 
 using namespace Rcpp;
 
+// laplace
+double laplace(double x);
+RcppExport SEXP _StatComp20057_laplace(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(laplace(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// MetropolisC
+List MetropolisC(double sigma, double x0, int N);
+RcppExport SEXP _StatComp20057_MetropolisC(SEXP sigmaSEXP, SEXP x0SEXP, SEXP NSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type sigma(sigmaSEXP);
+    Rcpp::traits::input_parameter< double >::type x0(x0SEXP);
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    rcpp_result_gen = Rcpp::wrap(MetropolisC(sigma, x0, N));
+    return rcpp_result_gen;
+END_RCPP
+}
 // gibbsC
 NumericMatrix gibbsC(int N, int thin);
 RcppExport SEXP _StatComp20057_gibbsC(SEXP NSEXP, SEXP thinSEXP) {
@@ -32,6 +56,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_StatComp20057_laplace", (DL_FUNC) &_StatComp20057_laplace, 1},
+    {"_StatComp20057_MetropolisC", (DL_FUNC) &_StatComp20057_MetropolisC, 3},
     {"_StatComp20057_gibbsC", (DL_FUNC) &_StatComp20057_gibbsC, 2},
     {"_StatComp20057_vaccC", (DL_FUNC) &_StatComp20057_vaccC, 3},
     {NULL, NULL, 0}

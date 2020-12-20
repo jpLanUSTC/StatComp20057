@@ -1,0 +1,56 @@
+---
+title: "StatComp20057"
+author: 'Jianping Lan'
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{StatComp20057}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+__StatComp20057__ is a simple R package developed to compute the variance of an estimator with bootstrap method, and to compute the empirical estimation of Type I error in skewness normality test. Two functions are included, namely, _boots_var_ and _skewness.test_ . For each function, examples are given.
+## Introduction to _boots_var_ 
+
+The source R code for _boots_var_ is as follows:
+
+***boots_var***
+```{r}
+boots_var <- function(data, B){
+   n <- length(data)      #sample size
+  boot <- numeric()
+  for(i in 1:B){
+    boot[i] <- mean(sample(data, size = n, replace = TRUE))
+  }
+  return(var(boot))
+}
+```
+
+## Introduction to _skewness.test_ 
+
+The source R code for _skewness.test_ is as follows:
+
+***skewness.test***
+```{r}
+skewness.test <- function(data, alpha){
+  n <- length(data)
+  cv <- qnorm(1 - alpha/2, 0, sqrt((6*(n - 2)) / ((n + 1)*(n + 3))))
+sk <- function(x) {
+  xbar <- mean(x)
+  m3 <- mean((x - xbar)^3)
+  m2 <- mean((x - xbar)^2)
+  return(m3 / m2^1.5)
+}
+ m <- 10000
+ sktests <- numeric(m)
+ for(j in 1:m){
+    x <- rnorm(n)
+    # test decision is 1 (reject) or 0 (can not reject)
+    sktests[j] <- as.integer(abs(sk(x)) >= cv)
+ }
+ p.reject <- mean(sktests)
+ return(p.reject)
+}
+```

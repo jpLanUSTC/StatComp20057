@@ -3,20 +3,18 @@
 \alias{StatComp20057}
 \docType{package}
 \title{
-  A short title line describing what the package does
+  Boostrap method to estimate variance and skewness test of normality
 }
 \description{
-  A more detailed description of what the package does. A length
-  of about one to five lines is recommended.
+  The fucntion of boostrap method to estimate variance is boots_var(data, B), where the data is your object to analyze, and the B is bootstrap sample size. The fucntion of skewness test of normality is skewness.test(data, alpha), where the data is your object to analyze, and the alpha is significant level.
 }
 \details{
-  This section should provide a more detailed overview of how to use the
-  package, including the most important functions.
+ (data, B), where the data is your object to analyze, and the B is bootstrap sample size.skewness.test(data, alpha), where the data is your object to analyze, and the alpha is significant level.
 }
 \author{
-Your Name, email optional.
+Jianping Lan, 1413433806@qq.com
 
-Maintainer: Your Name <your@email.com>
+Maintainer: Jianping Lan <1413433806@qq.com>
 }
 \references{
   This optional section can contain literature or other references for
